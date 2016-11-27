@@ -1,0 +1,15 @@
+---
+version: '2'
+services:
+  ansible:
+    image: joaodubas/ansible:1.9.6-bash
+    volumes:
+      - /opt/loggi/ops:/opt/ops
+    environment:
+      - TERM=screen-256color
+      - PATH=/opt/ops/ansible/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    working_dir: /opt/ops/ansible
+    restart: always
+    entrypoint: /bin/sh
+    command: -c 'sleep 100000d'
+    hostname: ansible
